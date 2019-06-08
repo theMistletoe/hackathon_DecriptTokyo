@@ -16,6 +16,10 @@ contract StickerStore {
   //   emit RoomCreated(msg.sender, newRoom, msg.value);
   // }
 
+  function addAddressToStickerList(address _stickerAddress) public {
+      stickerList.push(_stickerAddress);
+  }
+
   function getAllStickerList() public view returns (address[] memory) {
     return stickerList;
   }
