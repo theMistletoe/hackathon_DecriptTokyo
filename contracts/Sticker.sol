@@ -1,4 +1,4 @@
-pragma solidity ^0.5.1;
+pragma solidity ^0.5.2;
 
 contract Sticker{
 
@@ -45,6 +45,10 @@ contract Sticker{
    function getImage() public view returns (string memory) {
        return stickers.image;
    }
+
+   function getAddress() public view returns (address) {
+    return address(this);
+  }
 
 
 }
