@@ -1,7 +1,7 @@
-// const path = require("path");
-// var HDWalletProvider = require("truffle-hdwallet-provider");
-// var mnemonic = process.env.MNEMONIC;
-// var ropsten_endpoint = process.env.ROPSTEN_ENDPOINT;
+const path = require("path");
+var HDWalletProvider = require("truffle-hdwallet-provider");
+var mnemonic = process.env.MNEMONIC;
+var ropsten_endpoint = process.env.ROPSTEN_ENDPOINT;
 
 /**
  * Use this file to configure your truffle project. It's seeded with some

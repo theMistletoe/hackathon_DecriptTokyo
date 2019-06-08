@@ -8,7 +8,7 @@
 
     <div id="holders"></div>
     <div id="userName"></div>
-    <div id="userIcon"></div>
+    <img id="userIcon" src-"" />
 	<div id="userStickers"></div>
 	<img id="stickerImage" src="" />
 
@@ -21,10 +21,10 @@ $(window).load(function(){
     if (typeof web3 !== 'undefined') {
         web3 = new Web3(web3.currentProvider);
         ethereum.enable();
-        
+
         web3.eth.getAccounts((error, result) => {
                     acc = result[0];
-                    getusername()   
+                    getusername()
                 })
 
     }else{
@@ -264,13 +264,13 @@ $(window).load(function(){
 			"type": "function"
 		}
 	]
-        
+
 
         function getusername(){
 
         var mycontract=web3.eth.contract(abi).at(user_contract)
-       
-       
+
+
                mycontract.getName(acc,{
                                 from: acc,
                                 gas: 1000000,
@@ -279,14 +279,15 @@ $(window).load(function(){
                     username=result
                     $('#userName').text('username:'+username);
                })
-               
+
                mycontract.getIcon(acc,{
                                 from: acc,
                                 gas: 1000000,
                 },(error,result)=>
                 {
                     userIcon=result
-                    $('#userIcon').text('userIcon:'+userIcon);
+                    // $('#userIcon').text('userIcon:'+userIcon);
+                    $('#userIcon').attr("src",userIcon);
                })
 
                mycontract.getStickers(acc,{
@@ -306,20 +307,20 @@ $(window).load(function(){
 						},(error,result)=>
 						{
 							$('#stickerImage').attr("src",result);
-					})	
+					})
 						}
                })
 
-			   
 
-			   
+
+
         }
 
 
-   
 
-        
-    
+
+
+
 
 
 
