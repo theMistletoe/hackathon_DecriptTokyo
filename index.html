@@ -12,7 +12,8 @@
     <div id="stickerOwner"></div>
     <div id="stickerName"></div>
     <div id="stickerDescription"></div>
-    <img id="stickerImage" src="" />
+	<img id="stickerImage" src="" />
+		
 
 </body>
 
@@ -21,7 +22,7 @@
 
 
 var acc
-var sticker_contract = "0x722cd648a1153f52898352fc9e2f29dee104480e";
+var sticker_contract = "0x777298c752faaeb92f24dcd47f93428ead3e1ae7";
 var sticker_abi=[
 	{
 		"constant": false,
@@ -35,6 +36,53 @@ var sticker_abi=[
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_description",
+				"type": "string"
+			},
+			{
+				"name": "_image",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getDescription",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getImage",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -54,11 +102,11 @@ var sticker_abi=[
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "getDescription",
+		"name": "getOwner",
 		"outputs": [
 			{
 				"name": "",
-				"type": "string"
+				"type": "address"
 			}
 		],
 		"payable": false,
@@ -104,78 +152,11 @@ var sticker_abi=[
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getOwner",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getImage",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_description",
-				"type": "string"
-			},
-			{
-				"name": "_image",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "constructor"
 	}
 ]
 
-
-var user_contract = "0xfed107c9edc399ea3a57c02364033d61b7ef8e0c";
+var user_contract = "0x40da26927c9d53106c0ca47608a4fdadf1ab6d29";
 var user_abi =[
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "sender",
-				"type": "address"
-			}
-		],
-		"name": "getName",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
 	{
 		"constant": false,
 		"inputs": [
@@ -189,6 +170,28 @@ var user_abi =[
 			}
 		],
 		"name": "addsticker",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_name",
+				"type": "string"
+			},
+			{
+				"name": "_Icon",
+				"type": "string"
+			},
+			{
+				"name": "_stickers",
+				"type": "address[]"
+			}
+		],
+		"name": "makesample",
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -214,25 +217,22 @@ var user_abi =[
 		"type": "function"
 	},
 	{
-		"constant": false,
+		"constant": true,
 		"inputs": [
 			{
-				"name": "_name",
-				"type": "string"
-			},
-			{
-				"name": "_Icon",
-				"type": "string"
-			},
-			{
-				"name": "_stickers",
-				"type": "address[]"
+				"name": "sender",
+				"type": "address"
 			}
 		],
-		"name": "makesample",
-		"outputs": [],
+		"name": "getName",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
